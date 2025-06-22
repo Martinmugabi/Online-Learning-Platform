@@ -75,6 +75,7 @@ section {
 .btn-primary {
     background-color: var(--primary-color);
     color: white;
+    justify-items: center;
 }
 
 .btn-primary:hover {
