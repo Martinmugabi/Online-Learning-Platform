@@ -328,3 +328,50 @@ section {
     margin-right: 10px;
 }
 
+/* Courses Section */
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.course-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    transition: var(--transition);
+}
+
+.course-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.course-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    background-color: #e6f0ff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.course-icon i {
+    font-size: 2rem;
+    color: var(--primary-color);
+}
+
+.course-card h3 {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.course-card p {
+    color: #4a5568;
+    margin-bottom: 20px;
+}
+
