@@ -313,9 +313,10 @@ section {
 }
 
 .about-image img {
-    width: 100%;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  aspect-ratio: 16/9; /* Optional: maintain aspect ratio */
 }
 
 .about-text p {
@@ -359,6 +360,9 @@ section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
+    background-color: #90ddf5;
+    padding: 40px;
+    border-radius: 10px;
 }
 
 .course-card {
@@ -408,11 +412,15 @@ section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
+    background-color: #6192fa;
+    padding: 30px;
+    border-radius: 5px;
+
 }
 
 .mentor-card {
     background-color: white;
-    padding: 30px;
+    padding: 20px;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     text-align: center;
