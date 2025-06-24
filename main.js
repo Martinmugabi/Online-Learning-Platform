@@ -190,4 +190,28 @@ function simulateLogin(username, password) {
     }
   }, 1500);
 }
+function showError(message) {
+  // Remove any existing error messages
+  const existingError = document.querySelector('.error-message');
+  if (existingError) existingError.remove();
+  
+  // Create error element
+  const errorElement = document.createElement('div');
+  errorElement.className = 'error-message';
+  errorElement.style.color = '#e74c3c';
+  errorElement.style.marginBottom = '15px';
+  errorElement.style.textAlign = 'center';
+  errorElement.style.fontWeight = '500';
+  errorElement.textContent = message;
+  
+  // Insert before the form
+  const form = document.getElementById('login');
+  form.insertBefore(errorElement, form.firstChild);
+  
+  // Shake animation for error
+  form.style.animation = 'shake 0.5s';
+  setTimeout(() => {
+    form.style.animation = '';
+  }, 500);
+}
 
