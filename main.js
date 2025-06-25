@@ -215,3 +215,40 @@ function showError(message) {
   }, 500);
 }
 
+function showSuccess(message) {
+  // Create success element
+  const successElement = document.createElement('div');
+  successElement.className = 'success-message';
+  successElement.style.color = '#2ecc71';
+  successElement.style.marginBottom = '15px';
+  successElement.style.textAlign = 'center';
+  successElement.style.fontWeight = '500';
+  successElement.textContent = message;
+  
+  // Insert before the form
+  const form = document.getElementById('login');
+  form.insertBefore(successElement, form.firstChild);
+}
+
+// Add shake animation to CSS
+const style = document.createElement('style');
+style.textContent = `
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-5px); }
+    40%, 80% { transform: translateX(5px); }
+  }
+`;
+document.head.appendChild(style);
+
+// Add focus effects
+document.querySelectorAll('.form123-group input').forEach(input => {
+  input.addEventListener('focus', function() {
+    this.parentNode.style.transform = 'scale(1.02)';
+  });
+  
+  input.addEventListener('blur', function() {
+    this.parentNode.style.transform = 'scale(1)';
+  });
+});
+
