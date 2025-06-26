@@ -301,3 +301,63 @@ function processSignup(username, email, password) {
   // Show loading state
   btn.innerHTML = '<span class="spinner"></span> Processing...';
   btn.disabled = true;
+// Simulate API call
+  setTimeout(() => {
+    // In a real app, you would send data to your backend here
+    console.log('Signup data:', { username, email, password });
+    
+    // Show success message
+    showMessage('Account created successfully! Redirecting...', 'success');
+    
+    // Reset button after delay
+    setTimeout(() => {
+      btn.textContent = originalText;
+      btn.disabled = false;
+      
+      // Redirect to login page (simulated)
+      // window.location.href = 'login.html';
+    }, 2000);
+  }, 1500);
+}
+
+// Show message to user
+function showMessage(message, type) {
+  // Remove any existing messages
+  const existingMsg = document.querySelector('.form-message');
+  if (existingMsg) existingMsg.remove();
+  
+  // Create message element
+  const msgElement = document.createElement('div');
+  msgElement.className = `form-message ${type}`;
+  msgElement.textContent = message;
+  
+  // Style based on type
+  if (type === 'error') {
+    msgElement.style.color = '#d63031';
+    msgElement.style.backgroundColor = '#ffecec';
+  } else {
+    msgElement.style.color = '#00b894';
+    msgElement.style.backgroundColor = '#e8f8f5';
+  }
+  
+  // Add styles
+  msgElement.style.padding = '12px';
+  msgElement.style.borderRadius = '8px';
+  msgElement.style.marginBottom = '20px';
+  msgElement.style.textAlign = 'center';
+  msgElement.style.fontWeight = '500';
+  msgElement.style.transition = 'all 0.3s ease';
+  
+  // Insert message
+  const form = document.getElementById('signupForm56');
+  form.insertBefore(msgElement, form.firstChild);
+  
+  // Add shake effect for errors
+  if (type === 'error') {
+    form.style.animation = 'shake 0.5s';
+    setTimeout(() => {
+      form.style.animation = '';
+    }, 500);
+  }
+}
+
