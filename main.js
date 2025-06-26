@@ -252,3 +252,52 @@ document.querySelectorAll('.form123-group input').forEach(input => {
   });
 });
 
+document.getElementById('signupForm56').addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  // Get form values
+  const username = document.getElementById('username').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const password = document.getElementById('password').value;
+  
+  // Validate inputs
+  if (!username || !email || !password) {
+    showMessage('Please fill in all fields', 'error');
+    return;
+  }
+  
+  if (username.length < 4) {
+    showMessage('Username must be at least 4 characters', 'error');
+    return;
+  }
+  
+  if (!validateEmail(email)) {
+    showMessage('Please enter a valid email address', 'error');
+    return;
+  }
+  
+  if (password.length < 8) {
+    showMessage('Password must be at least 8 characters', 'error');
+    return;
+  }
+  
+  // If all validations pass
+  processSignup(username, email, password);
+});
+
+// Email validation function
+function validateEmail(email) {
+  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return re.test(email);
+}
+
+// Process signup (simulated)
+function processSignup(username, email, password) {
+  const btn = document.querySelector('.btn44');
+  
+  // Save original button text
+  const originalText = btn.textContent;
+  
+  // Show loading state
+  btn.innerHTML = '<span class="spinner"></span> Processing...';
+  btn.disabled = true;
