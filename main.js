@@ -361,3 +361,102 @@ function showMessage(message, type) {
   }
 }
 
+
+
+
+
+
+  
+  
+// Password strength indicator
+document.getElementById('password').addEventListener('input', function(e) {
+  const password = e.target.value;
+  const strengthBar = document.querySelector('.strength-bar');
+  
+  // Create strength bar if it doesn't exist
+  if (!strengthBar) {
+    const strengthContainer = document.createElement('div');
+    strengthContainer.className = 'password-strength';
+    strengthContainer.innerHTML = '<div class="strength-bar"></div>';
+    e.target.parentNode.appendChild(strengthContainer);
+  }
+  
+  // Calculate strength
+  let strength = 0;
+  if (password.length > 0) strength += 20;
+  if (password.length >= 8) strength += 20;
+  if (/[A-Z]/.test(password)) strength += 20;
+  if (/[0-9]/.test(password)) strength += 20;
+  if (/[^A-Za-z0-9]/.test(password)) strength += 20;
+  
+  // Update strength bar
+  const bar = document.querySelector('.strength-bar');
+  bar.style.width = `${strength}%`;
+  
+  // Change color based on strength
+  if (strength < 40) {
+    bar.style.backgroundColor = '#e74c3c';
+  } else if (strength < 70) {
+    bar.style.backgroundColor = '#f39c12';
+  } else {
+    bar.style.backgroundColor = '#2ecc71';
+  }
+});
+
+// Add shake animation to CSS
+const style = document.createElement('style');
+style.textContent = `
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-5px); }
+    40%, 80% { transform: translateX(5px); }
+  }
+  
+  .spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 3px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s ease-in-out infinite;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+  
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+`;
+document.head.appendChild(style);
+
+// Add focus effects
+document.querySelectorAll('.form-group44 input').forEach(input => {
+  input.addEventListener('focus', function() {
+    this.parentElement.style.transform = 'scale(1.02)';
+  });
+  
+  input.addEventListener('blur', function() {
+    this.parentElement.style.transform = 'scale(1)';
+  });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
