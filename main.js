@@ -450,7 +450,7 @@ function goToResources() {
 
 function takeCourse() {
   // Replace 'course.html' with the actual path to your course page
-  window.location.href = 'course.html';
+  window.location.href = 'home.html';
 }
 
 function downloadCertificate() {
