@@ -1675,9 +1675,6 @@ h1 {
 }
 
 .container-1{
-    justify-content: center;
-    align-items: center;
-    justify-items: center;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     padding: 20px;
     background: linear-gradient(135deg, #f0f2f0 0%, #c0c0c0 100%); /* Gradient background */

@@ -443,7 +443,38 @@ document.querySelectorAll('.form-group44 input').forEach(input => {
 
 
 
+function goToResources() {
+  // Replace 'resources.html' with the actual path to your resources page
+  window.location.href = 'resources.html';
+}
 
+function takeCourse() {
+  // Replace 'course.html' with the actual path to your course page
+  window.location.href = 'course.html';
+}
+
+function downloadCertificate() {
+  // Replace 'path/to/your/certificate.pdf' with the actual path to your certificate file
+  var certificateURL = 'path/to/your/certificate.pdf';
+
+  // Create a temporary link element
+  var link = document.createElement('a');
+
+  // Set the href attribute to the certificate URL
+  link.href = certificateURL;
+
+  // Set the download attribute to suggest a filename for the downloaded file
+  link.download = 'certificate.pdf'; // You can customize the filename here
+
+  // Append the link to the document body
+  document.body.appendChild(link);
+
+  // Programmatically click the link to trigger the download
+  link.click();
+
+  // Remove the link from the document body
+  document.body.removeChild(link);
+}
 
 
 
