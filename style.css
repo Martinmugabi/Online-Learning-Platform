@@ -1580,6 +1580,84 @@ h1 {
 
 
 
+/*container-web*/
+.container-web {
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    padding: 20px;
+}
+
+.container-web h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.container-web p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.container-web .resources {
+    gap: 15px;
+    justify-content: center;
+    flex-direction: column; /* Stack buttons on smaller screens */
+    align-items: center; /* Center buttons horizontally */
+}
+.framework-select{
+    width: 100%;
+    padding: 10px;
+    border: 2px solid var(--primary-color);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    margin-bottom: 20px;
+    background-color: transparent;
+    color: var(--primary-color);
+}
+
+.container-web .btn-outline1,
+.container-web .btn-outline2,
+.container-web .btn-outline3 {
+    width: 100%; /* Make buttons full width */
+    text-align: center; /* Center text within buttons */
+    padding: 10px;
+    font-size: 0.9rem;
+}
+
+/* Media query for larger screens */
+@media (min-width: 768px) {
+    .container-web {
+        padding: 40px;
+    }
+
+    .container-web h2 {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+    }
+
+    .container-web p {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+    }
+
+    .container-web .resources {
+        flex-direction: row; /* Display buttons in a row on larger screens */
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .container-web .btn-outline1,
+    .container-web .btn-outline2,
+    .container-web .btn-outline3 {
+        width: auto; /* Reset width */
+        text-align: center;
+        padding: 10px 20px;
+        font-size: 1rem; /* Increase font size */
+    }
+}
+
+
+
 
 
 
