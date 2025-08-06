@@ -12,14 +12,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelectorAll('.nav-link');
     navLinks.forEach(link => {
         link.addEventListener('click', function() {
-            if (nav.classList.contains('active')) {
-                menuToggle.classList.remove('active');
-                nav.classList.remove('active');
-            }
+            menuToggle.classList.remove('active');
+            nav.classList.remove('active');
         });
     });
     
-    // Sticky Header
+    // Header scroll effect
     const header = document.querySelector('.header');
     window.addEventListener('scroll', function() {
         if (window.scrollY > 100) {
@@ -66,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
     updateCountdown();
     setInterval(updateCountdown, 1000);
     
-    // Smooth Scrolling for Anchor Links
+    // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
@@ -84,397 +82,426 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Form Submission
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Here you would typically send the form data to a server
-            // For this example, we'll just show an alert
-            alert('Thank you for your message! We will get back to you soon.');
-            this.reset();
-        });
-    }
+   
     
-    // Newsletter Form Submission
+    // Newsletter form submission
     const newsletterForm = document.querySelector('.newsletter-form');
     if (newsletterForm) {
         newsletterForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            
             const emailInput = this.querySelector('input[type="email"]');
-            alert(`Thank you for subscribing with ${emailInput.value}!`);
-            emailInput.value = '';
-        });
-    }
-    
-    // Animation on Scroll
-    function animateOnScroll() {
-        const elements = document.querySelectorAll('.course-card, .mentor-card, .trending-card, .testimonial-card, .blog-card');
-        
-        elements.forEach(element => {
-            const elementPosition = element.getBoundingClientRect().top;
-            const screenPosition = window.innerHeight / 1.2;
             
-            if (elementPosition < screenPosition) {
-                element.style.opacity = '1';
-                element.style.transform = 'translateY(0)';
+            // Simple email validation
+            if (emailInput.value && emailInput.value.includes('@')) {
+                alert('Thank you for subscribing to our newsletter!');
+                emailInput.value = '';
+            } else {
+                alert('Please enter a valid email address.');
             }
         });
     }
     
-    // Set initial state for animated elements
-    const animatedElements = document.querySelectorAll('.course-card, .mentor-card, .trending-card, .testimonial-card, .blog-card');
-    animatedElements.forEach(element => {
-        element.style.opacity = '0';
-        element.style.transform = 'translateY(20px)';
-        element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    // Course card hover effect enhancement
+    const courseCards = document.querySelectorAll('.course-card, .mentor-card, .trending-card, .blog-card');
+    courseCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease';
+        });
     });
     
-    window.addEventListener('scroll', animateOnScroll);
-    window.addEventListener('load', animateOnScroll);
-});
-
-
-
-
-
-
-document.getElementById('login').addEventListener('submit', function(e) {
-  e.preventDefault();
-  
-  // Get form values
-  const username = document.getElementById('username').value.trim();
-  const password = document.getElementById('password').value;
-  
-  // Simple validation
-  if (!username || !password) {
-    showError('Please fill in all fields');
-    return;
-  }
-  
-  if (username.length < 4) {
-    showError('Username must be at least 4 characters');
-    return;
-  }
-  
-  if (password.length < 6) {
-    showError('Password must be at least 6 characters');
-    return;
-  }
-  
-  // Simulate login request (replace with actual API call)
-  simulateLogin(username, password);
-});
-
-function simulateLogin(username, password) {
-  // Show loading state
-  const btn = document.querySelector('.btn11');
-  btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Logging in...';
-  btn.disabled = true;
-  
-  // Simulate API delay
-  setTimeout(() => {
-    // This is just a simulation - in a real app, you would check credentials with your backend
-    if (username === 'demo' && password === 'password') {
-      showSuccess('Login successful! Redirecting...');
-      // Redirect after delay
-      setTimeout(() => {
-        window.location.href = 'dashboard.html'; // Change to your actual dashboard page
-      }, 1500);
-    } else {
-      showError('Invalid username or password');
-      btn.innerHTML = 'Login';
-      btn.disabled = false;
+    // Initialize accordion to show first item by default
+    if (accordionBtns.length > 0) {
+        accordionBtns[0].classList.add('active');
+        accordionBtns[0].nextElementSibling.style.maxHeight = accordionBtns[0].nextElementSibling.scrollHeight + 'px';
     }
-  }, 1500);
-}
-function showError(message) {
-  // Remove any existing error messages
-  const existingError = document.querySelector('.error-message');
-  if (existingError) existingError.remove();
-  
-  // Create error element
-  const errorElement = document.createElement('div');
-  errorElement.className = 'error-message';
-  errorElement.style.color = '#e74c3c';
-  errorElement.style.marginBottom = '15px';
-  errorElement.style.textAlign = 'center';
-  errorElement.style.fontWeight = '500';
-  errorElement.textContent = message;
-  
-  // Insert before the form
-  const form = document.getElementById('login');
-  form.insertBefore(errorElement, form.firstChild);
-  
-  // Shake animation for error
-  form.style.animation = 'shake 0.5s';
-  setTimeout(() => {
-    form.style.animation = '';
-  }, 500);
-}
-
-function showSuccess(message) {
-  // Create success element
-  const successElement = document.createElement('div');
-  successElement.className = 'success-message';
-  successElement.style.color = '#2ecc71';
-  successElement.style.marginBottom = '15px';
-  successElement.style.textAlign = 'center';
-  successElement.style.fontWeight = '500';
-  successElement.textContent = message;
-  
-  // Insert before the form
-  const form = document.getElementById('login');
-  form.insertBefore(successElement, form.firstChild);
-}
-
-// Add shake animation to CSS
-const style = document.createElement('style');
-style.textContent = `
-  @keyframes shake {
-    0%, 100% { transform: translateX(0); }
-    20%, 60% { transform: translateX(-5px); }
-    40%, 80% { transform: translateX(5px); }
-  }
-`;
-document.head.appendChild(style);
-
-// Add focus effects
-document.querySelectorAll('.form123-group input').forEach(input => {
-  input.addEventListener('focus', function() {
-    this.parentNode.style.transform = 'scale(1.02)';
-  });
-  
-  input.addEventListener('blur', function() {
-    this.parentNode.style.transform = 'scale(1)';
-  });
 });
 
-document.getElementById('signupForm56').addEventListener('submit', function(e) {
-  e.preventDefault();
-  
-  // Get form values
-  const username = document.getElementById('username').value.trim();
-  const email = document.getElementById('email').value.trim();
-  const password = document.getElementById('password').value;
-  
-  // Validate inputs
-  if (!username || !email || !password) {
-    showMessage('Please fill in all fields', 'error');
-    return;
-  }
-  
-  if (username.length < 4) {
-    showMessage('Username must be at least 4 characters', 'error');
-    return;
-  }
-  
-  if (!validateEmail(email)) {
-    showMessage('Please enter a valid email address', 'error');
-    return;
-  }
-  
-  if (password.length < 8) {
-    showMessage('Password must be at least 8 characters', 'error');
-    return;
-  }
-  
-  // If all validations pass
-  processSignup(username, email, password);
-});
+// ... (previous code remains the same until the countdown timer)
 
-// Email validation function
-function validateEmail(email) {
-  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return re.test(email);
-}
+    // Countdown Timer for Special Offer with Registration
+    let offerEndTime;
+    const offerDuration = 7 * 24 * 60 * 60 * 1000; // 7 days in milliseconds
 
-// Process signup (simulated)
-function processSignup(username, email, password) {
-  const btn = document.querySelector('.btn44');
-  
-  // Save original button text
-  const originalText = btn.textContent;
-  
-  // Show loading state
-  btn.innerHTML = '<span class="spinner"></span> Processing...';
-  btn.disabled = true;
-// Simulate API call
-  setTimeout(() => {
-    // In a real app, you would send data to your backend here
-    console.log('Signup data:', { username, email, password });
+    function initializeCountdown() {
+        const savedEndTime = localStorage.getItem('learnlyOfferEndTime');
+        
+        if (savedEndTime) {
+            offerEndTime = new Date(parseInt(savedEndTime));
+            // Check if offer period has already ended
+            if (offerEndTime < new Date()) {
+                resetOffer();
+                return;
+            }
+        } else {
+            // First visit - set end time
+            offerEndTime = new Date(Date.now() + offerDuration);
+            localStorage.setItem('learnlyOfferEndTime', offerEndTime.getTime());
+        }
+        
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    }
+
+    function updateCountdown() {
+        const now = new Date();
+        const diff = offerEndTime - now;
+        
+        // If time is up
+        if (diff <= 0) {
+            resetOffer();
+            return;
+        }
+        
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+        
+        document.getElementById('days').textContent = days.toString().padStart(2, '0');
+        document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+        document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+        document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+    }
+
+    function resetOffer() {
+        document.querySelector('.offer-timer').innerHTML = `
+            <div class="timer-item">
+                <span>00</span>
+                <small>Days</small>
+            </div>
+            <div class="timer-item">
+                <span>00</span>
+                <small>Hours</small>
+            </div>
+            <div class="timer-item">
+                <span>00</span>
+                <small>Minutes</small>
+            </div>
+            <div class="timer-item">
+                <span>00</span>
+                <small>Seconds</small>
+            </div>
+        `;
+        document.querySelector('.special-offer .btn').textContent = 'Offer Expired';
+        document.querySelector('.special-offer .btn').style.backgroundColor = '#999';
+        document.querySelector('.special-offer .btn').style.cursor = 'not-allowed';
+    }
+
+    // Registration Modal
+    function createRegistrationModal() {
+        const modal = document.createElement('div');
+        modal.className = 'registration-modal';
+        modal.innerHTML = `
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2>Register for Limited Time Offer</h2>
+                <form id="registrationForm">
+                    <div class="form-group">
+                        <input type="text" placeholder="Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Email Address" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" placeholder="Phone Number">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Complete Registration</button>
+                </form>
+            </div>
+        `;
+        document.body.appendChild(modal);
+        
+        // Close modal
+        modal.querySelector('.close-modal').addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+        
+        // Close when clicking outside
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+        
+        // Form submission
+        const registrationForm = modal.querySelector('#registrationForm');
+        if (registrationForm) {
+            registrationForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Here you would typically send the data to your server
+                // For this example, we'll just show a success message
+                modal.querySelector('.modal-content').innerHTML = `
+                    <div class="success-message">
+                        <i class="fas fa-check-circle"></i>
+                        <h3>Registration Successful!</h3>
+                        <p>Thank you for registering. Your 3 months of free access starts now!</p>
+                        <button class="btn btn-primary close-success">Continue</button>
+                    </div>
+                `;
+                
+                // Initialize the countdown if not already running
+                if (!localStorage.getItem('learnlyOfferEndTime')) {
+                    initializeCountdown();
+                }
+                
+                // Close success message
+                modal.querySelector('.close-success').addEventListener('click', function() {
+                    modal.style.display = 'none';
+                });
+            });
+        }
+        
+        return modal;
+    }
     
-    // Show success message
-    showMessage('Account created successfully! Redirecting...', 'success');
+
+    // Initialize registration modal
+    let registrationModal;
+    const registerBtn = document.querySelector('.special-offer .btn');
+    if (registerBtn) {
+        registerBtn.addEventListener('click', function() {
+            // Check if offer has expired
+            const savedEndTime = localStorage.getItem('learnlyOfferEndTime');
+            if (savedEndTime && new Date(parseInt(savedEndTime)) < new Date()) {
+                alert('This offer has expired.');
+                return;
+            }
+            
+            if (!registrationModal) {
+                registrationModal = createRegistrationModal();
+            }
+            registrationModal.style.display = 'flex';
+        });
+    }
+
+    // Initialize countdown if timer exists on page
+    if (document.querySelector('.offer-timer')) {
+        initializeCountdown();
+    }
+
+    // Contact Form Submission with Feedback
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Show loading state
+        const submitBtn = this.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.textContent;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        submitBtn.disabled = true;
+        
+        // Simulate form submission (replace with actual AJAX call in production)
+        setTimeout(() => {
+            // Hide loading state
+            submitBtn.textContent = originalBtnText;
+            submitBtn.disabled = false;
+            
+            // Show success message
+            showFormFeedback('Message sent successfully! We will get back to you soon.', 'success');
+            
+            // Reset form
+            this.reset();
+        }, 1500); // Simulate network delay
+    });
+}
+
+// Function to show form feedback messages
+function showFormFeedback(message, type = 'success') {
+    // Remove any existing messages
+    const existingFeedback = document.querySelector('.form-feedback');
+    if (existingFeedback) {
+        existingFeedback.remove();
+    }
     
-    // Reset button after delay
-    setTimeout(() => {
-      btn.textContent = originalText;
-      btn.disabled = false;
-      
-      // Redirect to login page (simulated)
-      // window.location.href = 'login.html';
-    }, 2000);
-  }, 1500);
-}
-
-// Show message to user
-function showMessage(message, type) {
-  // Remove any existing messages
-  const existingMsg = document.querySelector('.form-message');
-  if (existingMsg) existingMsg.remove();
-  
-  // Create message element
-  const msgElement = document.createElement('div');
-  msgElement.className = `form-message ${type}`;
-  msgElement.textContent = message;
-  
-  // Style based on type
-  if (type === 'error') {
-    msgElement.style.color = '#d63031';
-    msgElement.style.backgroundColor = '#ffecec';
-  } else {
-    msgElement.style.color = '#00b894';
-    msgElement.style.backgroundColor = '#e8f8f5';
-  }
-  
-  // Add styles
-  msgElement.style.padding = '12px';
-  msgElement.style.borderRadius = '8px';
-  msgElement.style.marginBottom = '20px';
-  msgElement.style.textAlign = 'center';
-  msgElement.style.fontWeight = '500';
-  msgElement.style.transition = 'all 0.3s ease';
-  
-  // Insert message
-  const form = document.getElementById('signupForm56');
-  form.insertBefore(msgElement, form.firstChild);
-  
-  // Add shake effect for errors
-  if (type === 'error') {
-    form.style.animation = 'shake 0.5s';
-    setTimeout(() => {
-      form.style.animation = '';
-    }, 500);
-  }
+    // Create feedback element
+    const feedback = document.createElement('div');
+    feedback.className = `form-feedback ${type}`;
+    feedback.innerHTML = `
+        <p>${message}</p>
+        <button class="close-feedback">&times;</button>
+    `;
+    
+    // Insert before the form
+    const form = document.getElementById('contactForm');
+    form.parentNode.insertBefore(feedback, form);
+    
+    // Auto-hide after 5 seconds
+    const autoHide = setTimeout(() => {
+        feedback.style.opacity = '0';
+        setTimeout(() => feedback.remove(), 300);
+    }, 5000);
+    
+    // Close button functionality
+    feedback.querySelector('.close-feedback').addEventListener('click', () => {
+        clearTimeout(autoHide);
+        feedback.style.opacity = '0';
+        setTimeout(() => feedback.remove(), 300);
+    });
 }
 
 
+// Course Enrollment System
+document.addEventListener('DOMContentLoaded', function() {
+    // Sample course data (replace with your actual courses)
+    const courses = [
+        { id: 1, title: "Web Development Bootcamp", originalPrice: 299, discountPrice: 239.20 },
+        { id: 2, title: "Advanced JavaScript", originalPrice: 199, discountPrice: 159.20 },
+        { id: 3, title: "UI/UX Design Fundamentals", originalPrice: 179, discountPrice: 143.20 },
+        { id: 4, title: "Data Science with Python", originalPrice: 249, discountPrice: 199.20 },
+        { id: 5, title: "Digital Marketing Masterclass", originalPrice: 159, discountPrice: 127.20 },
+        { id: 6, title: "Graphic Design Essentials", originalPrice: 149, discountPrice: 119.20 }
+    ];
 
+    // DOM Elements
+    const enrollNowBtn = document.getElementById('enrollNowBtn');
+    const enrollmentModal = document.getElementById('enrollmentModal');
+    const closeModalBtn = enrollmentModal?.querySelector('.close-modal');
+    const courseList = document.querySelector('.course-list');
+    const enrollmentForm = document.getElementById('enrollmentForm');
 
+    // Open modal when Enroll Now button is clicked
+    if (enrollNowBtn) {
+        enrollNowBtn.addEventListener('click', function() {
+            enrollmentModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        });
+    }
 
+    // Close modal
+    if (closeModalBtn) {
+        closeModalBtn.addEventListener('click', function() {
+            enrollmentModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+    }
 
-  
-  
-// Password strength indicator
-document.getElementById('password').addEventListener('input', function(e) {
-  const password = e.target.value;
-  const strengthBar = document.querySelector('.strength-bar');
-  
-  // Create strength bar if it doesn't exist
-  if (!strengthBar) {
-    const strengthContainer = document.createElement('div');
-    strengthContainer.className = 'password-strength';
-    strengthContainer.innerHTML = '<div class="strength-bar"></div>';
-    e.target.parentNode.appendChild(strengthContainer);
-  }
-  
-  // Calculate strength
-  let strength = 0;
-  if (password.length > 0) strength += 20;
-  if (password.length >= 8) strength += 20;
-  if (/[A-Z]/.test(password)) strength += 20;
-  if (/[0-9]/.test(password)) strength += 20;
-  if (/[^A-Za-z0-9]/.test(password)) strength += 20;
-  
-  // Update strength bar
-  const bar = document.querySelector('.strength-bar');
-  bar.style.width = `${strength}%`;
-  
-  // Change color based on strength
-  if (strength < 40) {
-    bar.style.backgroundColor = '#e74c3c';
-  } else if (strength < 70) {
-    bar.style.backgroundColor = '#f39c12';
-  } else {
-    bar.style.backgroundColor = '#2ecc71';
-  }
+    // Close when clicking outside modal
+    if (enrollmentModal) {
+        enrollmentModal.addEventListener('click', function(e) {
+            if (e.target === enrollmentModal) {
+                enrollmentModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+    }
+
+    // Populate course list
+    if (courseList) {
+        courses.forEach(course => {
+            const courseItem = document.createElement('div');
+            courseItem.className = 'course-item';
+            courseItem.innerHTML = `
+                <input type="checkbox" id="course-${course.id}" value="${course.id}">
+                <div class="course-info">
+                    <h4>${course.title}</h4>
+                    <div class="course-price">
+                        $${course.discountPrice.toFixed(2)} 
+                        <span class="original-price">$${course.originalPrice.toFixed(2)}</span>
+                        <span class="discount-badge">20% OFF</span>
+                    </div>
+                </div>
+            `;
+            courseList.appendChild(courseItem);
+        });
+    }
+
+    // Handle form submission
+    if (enrollmentForm) {
+        enrollmentForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get selected courses
+            const selectedCourses = Array.from(document.querySelectorAll('.course-item input:checked'))
+                .map(checkbox => parseInt(checkbox.value));
+            
+            if (selectedCourses.length === 0) {
+                alert('Please select at least one course');
+                return;
+            }
+            
+            // Show loading state
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.textContent;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+            submitBtn.disabled = true;
+            
+            // Simulate form submission (replace with actual AJAX call in production)
+            setTimeout(() => {
+                // Hide loading state
+                submitBtn.textContent = originalBtnText;
+                submitBtn.disabled = false;
+                
+                // Show success message
+                showEnrollmentSuccess();
+            }, 1500);
+        });
+    }
+     
+    // Add to your existing JavaScript
+document.addEventListener('DOMContentLoaded', function() {
+    // Button ripple effect
+    const enrollBtn = document.getElementById('enrollNowBtn');
+    if (enrollBtn) {
+        enrollBtn.addEventListener('click', function(e) {
+            // Remove any existing ripples
+            const existingRipples = this.querySelectorAll('.ripple');
+            existingRipples.forEach(ripple => ripple.remove());
+            
+            // Create new ripple
+            const ripple = document.createElement('span');
+            ripple.className = 'ripple';
+            
+            // Position ripple
+            const rect = this.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            ripple.style.width = ripple.style.height = `${size}px`;
+            ripple.style.left = `${e.clientX - rect.left - size/2}px`;
+            ripple.style.top = `${e.clientY - rect.top - size/2}px`;
+            
+            // Add ripple to button
+            this.appendChild(ripple);
+            
+            // Remove ripple after animation
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
+        });
+    }
+});
+    // Show enrollment success
+    function showEnrollmentSuccess() {
+        const modalContent = document.querySelector('.modal-content');
+        modalContent.innerHTML = `
+            <div class="enrollment-success">
+                <i class="fas fa-check-circle"></i>
+                <h3>Enrollment Successful!</h3>
+                <p>Thank you for enrolling. You will receive a confirmation email with course access instructions shortly.</p>
+                <button class="btn btn-primary close-enrollment">Continue to Dashboard</button>
+            </div>
+        `;
+        
+        // Close button functionality
+        document.querySelector('.close-enrollment').addEventListener('click', function() {
+            enrollmentModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+    }
 });
 
-// Add shake animation to CSS
-const style = document.createElement('style');
-style.textContent = `
-  @keyframes shake {
-    0%, 100% { transform: translateX(0); }
-    20%, 60% { transform: translateX(-5px); }
-    40%, 80% { transform: translateX(5px); }
-  }
-  
-  .spinner {
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    border: 3px solid rgba(255,255,255,0.3);
-    border-radius: 50%;
-    border-top-color: white;
-    animation: spin 1s ease-in-out infinite;
-    margin-right: 8px;
-    vertical-align: middle;
-  }
-  
-  @keyframes spin {
-    to { transform: rotate(360deg); }
-  }
-`;
-document.head.appendChild(style);
-
-// Add focus effects
-document.querySelectorAll('.form-group44 input').forEach(input => {
-  input.addEventListener('focus', function() {
-    this.parentElement.style.transform = 'scale(1.02)';
-  });
-  
-  input.addEventListener('blur', function() {
-    this.parentElement.style.transform = 'scale(1)';
+// For option A
+document.querySelectorAll('.see-more[href^="#"]').forEach(link => {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    document.querySelector(this.getAttribute('href')).scrollIntoView({
+      behavior: 'smooth'
+    });
   });
 });
 
 
 
-function goToResources() {
-  // Replace 'resources.html' with the actual path to your resources page
-  window.location.href = 'resources.html';
-}
-
-function takeCourse() {
-  // Replace 'course.html' with the actual path to your course page
-  window.location.href = 'home.html';
-}
-
-function downloadCertificate() {
-  // Replace 'path/to/your/certificate.pdf' with the actual path to your certificate file
-  var certificateURL = 'path/to/your/certificate.pdf';
-
-  // Create a temporary link element
-  var link = document.createElement('a');
-
-  // Set the href attribute to the certificate URL
-  link.href = certificateURL;
-
-  // Set the download attribute to suggest a filename for the downloaded file
-  link.download = 'certificate.pdf'; // You can customize the filename here
-
-  // Append the link to the document body
-  document.body.appendChild(link);
-
-  // Programmatically click the link to trigger the download
-  link.click();
-
-  // Remove the link from the document body
-  document.body.removeChild(link);
-}
 
 
 
@@ -486,8 +513,140 @@ function downloadCertificate() {
 
 
 
-
-
-
-
+document.addEventListener('DOMContentLoaded', function() {
+    // DOM Elements
+    const loginBtn = document.getElementById('login-btn');
+    const signupBtn = document.getElementById('signup-btn');
+    const logoutBtn = document.getElementById('logout-btn');
+    const loginModal = document.getElementById('login-modal');
+    const signupModal = document.getElementById('signup-modal');
+    const closeModals = document.querySelectorAll('.close-modal');
+    const switchToSignup = document.getElementById('switch-to-signup');
+    const switchToLogin = document.getElementById('switch-to-login');
+    const guestOptions = document.getElementById('guest-options');
+    const userOptions = document.getElementById('user-options');
+    const loginForm = document.getElementById('login-form');
+    const signupForm = document.getElementById('signup-form');
+    
+    // Check if user is logged in (in a real app, this would check localStorage/session)
+    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+    
+    // Initialize UI based on login state
+    if (isLoggedIn) {
+        guestOptions.style.display = 'none';
+        userOptions.style.display = 'block';
+        
+        // Load user data if available
+        const userData = JSON.parse(localStorage.getItem('userData') || '{}');
+        if (userData.name) {
+            document.getElementById('username-display').textContent = userData.name;
+        }
+        if (userData.avatar) {
+            document.getElementById('user-avatar').src = userData.avatar;
+        }
+    } else {
+        guestOptions.style.display = 'flex';
+        userOptions.style.display = 'none';
+    }
+    
+    // Event Listeners
+    loginBtn?.addEventListener('click', () => {
+        loginModal.style.display = 'flex';
+    });
+    
+    signupBtn?.addEventListener('click', () => {
+        signupModal.style.display = 'flex';
+    });
+    
+    closeModals.forEach(btn => {
+        btn.addEventListener('click', () => {
+            loginModal.style.display = 'none';
+            signupModal.style.display = 'none';
+        });
+    });
+    
+    switchToSignup?.addEventListener('click', (e) => {
+        e.preventDefault();
+        loginModal.style.display = 'none';
+        signupModal.style.display = 'flex';
+    });
+    
+    switchToLogin?.addEventListener('click', (e) => {
+        e.preventDefault();
+        signupModal.style.display = 'none';
+        loginModal.style.display = 'flex';
+    });
+    
+    logoutBtn?.addEventListener('click', () => {
+        localStorage.removeItem('isLoggedIn');
+        localStorage.removeItem('userData');
+        guestOptions.style.display = 'flex';
+        userOptions.style.display = 'none';
+    });
+    
+    // Close modal when clicking outside
+    window.addEventListener('click', (e) => {
+        if (e.target === loginModal) {
+            loginModal.style.display = 'none';
+        }
+        if (e.target === signupModal) {
+            signupModal.style.display = 'none';
+        }
+    });
+    
+    // Form Submissions
+    loginForm?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = document.getElementById('login-email').value;
+        const password = document.getElementById('login-password').value;
+        
+        // In a real app, you would validate and send to server
+        console.log('Login attempt with:', email, password);
+        
+        // Simulate successful login
+        localStorage.setItem('isLoggedIn', 'true');
+        guestOptions.style.display = 'none';
+        userOptions.style.display = 'block';
+        loginModal.style.display = 'none';
+    });
+    
+    signupForm?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('signup-name').value;
+        const email = document.getElementById('signup-email').value;
+        const password = document.getElementById('signup-password').value;
+        const confirmPassword = document.getElementById('signup-confirm').value;
+        const avatarInput = document.getElementById('signup-avatar');
+        
+        // Basic validation
+        if (password !== confirmPassword) {
+            alert('Passwords do not match!');
+            return;
+        }
+        
+        // Handle avatar upload
+        let avatarUrl = 'https://via.placeholder.com/40';
+        if (avatarInput.files && avatarInput.files[0]) {
+            // In a real app, you would upload this to a server
+            avatarUrl = URL.createObjectURL(avatarInput.files[0]);
+        }
+        
+        // Save user data (in a real app, this would go to a server)
+        const userData = {
+            name: name,
+            email: email,
+            avatar: avatarUrl
+        };
+        
+        localStorage.setItem('isLoggedIn', 'true');
+        localStorage.setItem('userData', JSON.stringify(userData));
+        
+        // Update UI
+        document.getElementById('username-display').textContent = name;
+        document.getElementById('user-avatar').src = avatarUrl;
+        guestOptions.style.display = 'none';
+        userOptions.style.display = 'block';
+        signupModal.style.display = 'none';
+    });
+});
 
