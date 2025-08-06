@@ -10,27 +10,102 @@
 </head>
 <body>
     <div class="wrapper">
-        <!-- Header/Navigation Section -->
-        <header class="header">
-            <div class="container">
-                <h1 class="logo">learnly</h1>
-                <button class="menu-toggle" aria-label="Toggle menu">
-                    <span class="hamburger"></span>
-                </button>
-                <nav class="nav">
-                    <ul class="nav-list">
-                        <li><a href="#home" class="nav-link">Home</a></li>
-                        <li><a href="#about" class="nav-link">About Us</a></li>
-                        <li><a href="#courses" class="nav-link">Courses</a></li>
-                        <li><a href="#trending" class="nav-link">Trending</a></li>
-                        <li><a href="#mentors" class="nav-link">Mentors</a></li>
-                        <li><a href="#contact" class="nav-link">Contact Us</a></li>
-                        <li><a href="#blog" class="nav-link">Blogs</a></li>
-                        <li><a href=" sigin.html " class="nav-link btn btn-signin">Sign In</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
+       <header class="header">
+    <div class="container">
+        <h1 class="logo">learnly</h1>
+        <button class="menu-toggle" aria-label="Toggle menu">
+            <span class="hamburger"></span>
+        </button>
+        <nav class="nav">
+            <ul class="nav-list">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About Us</a></li>
+                <li><a href="#courses" class="nav-link">Courses</a></li>
+                <li><a href="#trending" class="nav-link">Trending</a></li>
+                <li><a href="#mentors" class="nav-link">Mentors</a></li>
+                <li><a href="#contact" class="nav-link">Contact Us</a></li>
+                <li><a href="#blog" class="nav-link">Blogs</a></li>
+                
+                <!-- Authentication Section -->
+                <li class="auth-item">
+                    <div class="auth-dropdown">
+                        <!-- Display when user is not logged in -->
+                        <div class="auth-options" id="guest-options">
+                            <button class="auth-btn" id="login-btn">Login</button>
+                            <button class="auth-btn primary" id="signup-btn">Sign Up</button>
+                        </div>
+                        
+                        <!-- Display when user is logged in -->
+                        <div class="auth-options" id="user-options" style="display: none;">
+                            <div class="user-profile">
+                                <img src="https://via.placeholder.com/40" alt="User" class="user-avatar" id="user-avatar">
+                                <span class="username" id="username-display">User</span>
+                                <i class="dropdown-arrow"></i>
+                            </div>
+                            <div class="user-dropdown">
+                                <a href="#profile" class="dropdown-link">My Profile</a>
+                                <a href="#settings" class="dropdown-link">Settings</a>
+                                <a href="#my-courses" class="dropdown-link">My Courses</a>
+                                <button class="dropdown-link logout-btn" id="logout-btn">Logout</button>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    
+    <!-- Authentication Modals -->
+    <div class="auth-modal" id="login-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Login to Your Account</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                <button type="submit" class="auth-submit">Login</button>
+                <p class="auth-switch">Don't have an account? <a href="#" id="switch-to-signup">Sign up</a></p>
+            </form>
+        </div>
+    </div>
+    
+    <div class="auth-modal" id="signup-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Create Your Account</h2>
+            <form id="signup-form">
+                <div class="form-group">
+                    <label for="signup-name">Full Name</label>
+                    <input type="text" id="signup-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-email">Email</label>
+                    <input type="email" id="signup-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-password">Password</label>
+                    <input type="password" id="signup-password" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-confirm">Confirm Password</label>
+                    <input type="password" id="signup-confirm" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-avatar">Profile Picture (optional)</label>
+                    <input type="file" id="signup-avatar" accept="image/*">
+                </div>
+                <button type="submit" class="auth-submit">Create Account</button>
+                <p class="auth-switch">Already have an account? <a href="#" id="switch-to-login">Login</a></p>
+            </form>
+        </div>
+    </div>
+</header>
 
         <!-- Hero Section -->
         <section class="hero" id="home">
@@ -38,7 +113,7 @@
                 <div class="hero-content">
                     <h1 class="hero-title">LEARNLY</h1>
                     <p class="hero-subtitle">Develop your skills <br>In a new and<br> unique way</p>
-                 <a href="exp.html">   <button class=" btn btn-primary">Explore</button></a>
+                 <a href="#">   <button class=" btn btn-primary">Explore</button></a>
                 </div>
                 <div class="hero-stats">
                     <div class="stat-card">
@@ -67,7 +142,7 @@
                 <h2 class="section-title">About Us</h2>
                 <div class="about-content">
                     <div class="about-image">
-                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Learnly Academy Team">
+                        <img src=" photos/meganz.jpg" alt="Learnly Academy Team">
                     </div>
                     <div class="about-text">
                         <p>Welcome to Learnly Academy, a premier online learning platform dedicated to elevating people's skills and knowledge in technology and beyond. Our mission is to provide accessible, high-quality education to learners worldwide.</p>
@@ -103,7 +178,7 @@
                         </div>
                         <h3>Web Development</h3>
                         <p>Learn HTML, CSS, JavaScript and modern frameworks</p>
-                      <a href="web.html">  <button class="btn-btn-outline">Explore</button></a>
+                      <a href="web.html ">  <button class="btn-btn-outline">Explore</button></a>
                     </div>
                     <div class="course-card">
                         <div class="course-icon">
@@ -111,7 +186,7 @@
                         </div>
                         <h3>Programming</h3>
                         <p>Master C#, C++, Python and other programming languages</p>
-                       <a href="pp.html "> <button class="btn-btn-outline">Explore</button></a>
+                       <a href="programming.html "> <button class="btn-btn-outline">Explore</button></a>
                     </div>
                     <div class="course-card">
                         <div class="course-icon">
@@ -127,7 +202,7 @@
                         </div>
                         <h3>Music & Singing</h3>
                         <p>Learn vocal techniques and instrument mastery</p>
-                       <a href="music.html"> <button class="btn-btn-outline">Explore</button></a>
+                       <a href=" music.html"> <button class="btn-btn-outline">Explore</button></a>
                     </div>
                     <div class="course-card">
                         <div class="course-icon">
@@ -135,7 +210,7 @@
                         </div>
                         <h3>Data Science</h3>
                         <p>Python, R, machine learning and data analysis</p>
-                        <a href="Data Science.html"><button class="btn-btn-outline">Explore</button></a>
+                        <a href="datascience.html"><button class="btn-btn-outline">Explore</button></a>
                     </div>
                     <div class="course-card">
                         <div class="course-icon">
@@ -143,7 +218,7 @@
                         </div>
                         <h3>Digital Marketing</h3>
                         <p>Master social media, SEO, and online advertising</p>
-                        <a href="digiatm.html"><button class="btn-btn-outline">Explore</button></a>
+                        <a href="digitalm.html"><button class="btn-btn-outline">Explore</button></a>
                     </div>
                 </div>
             </div>
@@ -158,7 +233,7 @@
                 <div class="mentors-grid">
                     <div class="mentor-card">
                         <div class="mentor-image">
-                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Martin Mugabi">
+                            <img src="photos/NIG.jpg  " alt="Martin Mugabi">
                         </div>
                         <h3>Martin Mugabi</h3>
                         <span class="mentor-title">Senior Developer</span>
@@ -171,9 +246,9 @@
                     </div>
                     <div class="mentor-card">
                         <div class="mentor-image">
-                            <img src="https://randomuser.me/api/portraits/men/44.jpg" alt="Mudhasi Andrew">
+                            <img src="photos/BBY.jpg " alt="Mudhasi Andrew">
                         </div>
-                        <h3>Mudhasi Andrew</h3>
+                        <h3>Gwaita Adams</h3>
                         <span class="mentor-title">Design Director</span>
                         <p>15 years experience in graphics and UI/UX design</p>
                         <div class="mentor-social">
@@ -184,9 +259,9 @@
                     </div>
                     <div class="mentor-card">
                         <div class="mentor-image">
-                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Sarah Johnson">
+                            <img src=" photos/STRK.jpg" alt="lutaya jamil">
                         </div>
-                        <h3>Sarah Johnson</h3>
+                        <h3>Lutaya Jamil</h3>
                         <span class="mentor-title">Data Scientist</span>
                         <p>10 years experience in machine learning and AI</p>
                         <div class="mentor-social">
@@ -201,21 +276,65 @@
 
                <!-- Promotion Banner -->
         <section class="promo-banner">
-            <div class="container">
-                <div class="promo-content">
-                    <h2>Elevate your skills with us</h2>
-                    <p>All courses at 20% off for a limited time</p>
-                    <button class="btn btn-secondary">Enroll Now</button>
-                    <div class="social-links">
-                        <span>Follow us:</span>
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
+    <div class="container">
+        <div class="promo-content">
+            <h2>Elevate your skills with us</h2>
+            <p>All courses at 20% off for a limited time</p>
+            <button class="btn btn-secondary" id="enrollNowBtn">Enroll Now</button>
+            
+            <!-- Enrollment Modal (hidden by default) -->
+            <div id="enrollmentModal" class="enrollment-modal">
+                <div class="modal-content">
+                    <span class="close-modal">&times;</span>
+                    <h2 class="main12">Enroll in Courses</h2>
+                    <div class="modal-body">
+                        <div class="course-selection">
+                            <h3 class="main12">Available Courses (20% Off)</h3>
+                            <div class="course-list">
+                                <!-- Courses will be dynamically inserted here -->
+                            </div>
+                        </div>
+                        <div class="student-info">
+                            <h3 class="main12">Your Information</h3>
+                            <form id="enrollmentForm">
+                                <div class="form-group">
+                                    <input type="text" id="fullName" placeholder="Full Name" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" id="email" placeholder="Email Address" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="tel" id="phone" placeholder="Phone Number">
+                                </div>
+                                <div class="form-group">
+                                    <select id="paymentMethod" required>
+                                        <option value="">Select Payment Method</option>
+                                        <option value="credit_card">Credit Card</option>
+                                        <option value="paypal">PayPal</option>
+                                        <option value="bank_transfer">Bank Transfer</option>
+                                    </select>
+                                </div>
+                                <div class="form-group checkbox-group">
+                                    <input type="checkbox" id="agreeTerms" required>
+                                    <label for="agreeTerms">I agree to the <a href="#">Terms and Conditions</a></label>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Complete Enrollment</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
+            
+            <div class="social-links">
+                <span>Follow us:</span>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
                   
 
                 <!-- Trending Courses -->
@@ -225,7 +344,7 @@
                 <div class="trending-grid">
                     <div class="trending-card">
                         <div class="trending-image">
-                            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="UI Design Course">
+                            <img src=" photos/gag.jpeg " alt="UI Design Course">
                             <div class="trending-badge">Hot</div>
                         </div>
                         <div class="trending-content">
@@ -240,7 +359,7 @@
                     </div>
                     <div class="trending-card">
                         <div class="trending-image">
-                            <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="JavaScript Course">
+                            <img src=" photos/js.jpeg " alt="JavaScript Course">
                             <div class="trending-badge">New</div>
                         </div>
                         <div class="trending-content">
@@ -255,7 +374,7 @@
                     </div>
                     <div class="trending-card">
                         <div class="trending-image">
-                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Data Science Course">
+                            <img src=" photos/data s.jpeg  " alt="Data Science Course">
                             <div class="trending-badge">Popular</div>
                         </div>
                         <div class="trending-content">
@@ -271,7 +390,7 @@
 
                      <div class="trending-card">
                         <div class="trending-image">
-                            <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="JavaScript Course">
+                            <img src=" photos/yo.jpeg " alt="JavaScript Course">
                             <div class="trending-badge">New</div>
                         </div>
                         <div class="trending-content">
@@ -391,12 +510,12 @@
                 <div class="testimonials-grid">
                     <div class="testimonial-card">
                         <div class="testimonial-image">
-                            <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Student">
+                            <img src=" photos/MATT886.jpeg" alt="Student">
                         </div>
                         <div class="testimonial-content">
                             <p>"Learnly Academy transformed my career. The web development course gave me the skills to land my dream job at a tech startup."</p>
                             <div class="testimonial-author">
-                                <strong>Sarah K.</strong>
+                                <strong>Busulwa K.</strong>
                                 <span>Web Developer</span>
                             </div>
                             <div class="testimonial-rating">
@@ -413,7 +532,7 @@
 
                         <div class="testimonial-card">
                         <div class="testimonial-image">
-                            <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Student">
+                            <img src="  photos/Me.886.jpg " alt="Student">
                         </div>
                         <div class="testimonial-content">
                             <p>"Learnly Academy transformed my career. The web development course gave me the skills to land my dream job at a tech startup."</p>
@@ -433,7 +552,7 @@
 
                     <div class="testimonial-card">
                         <div class="testimonial-image">
-                            <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Student">
+                            <img src=" photos/MKE12.jpg" alt="Student">
                         </div>
                         <div class="testimonial-content">
                             <p>"The instructors are knowledgeable and supportive. I went from beginner to professional designer in just 6 months!"</p>
@@ -517,19 +636,19 @@
                     <p>Register now and get 3 months free access to all courses</p>
                     <div class="offer-timer">
                         <div class="timer-item">
-                            <span id="days">00</span>
+                            <span id="days">00 </span>
                             <small>Days</small>
                         </div>
                         <div class="timer-item">
-                            <span id="hours">00</span>
+                            <span id="hours">00 </span>
                             <small>Hours</small>
                         </div>
                         <div class="timer-item">
-                            <span id="minutes">00</span>
+                            <span id="minutes"> 00</span>
                             <small>Minutes</small>
                         </div>
                         <div class="timer-item">
-                            <span id="seconds">00</span>
+                            <span id="seconds"> 00</span>
                             <small>Seconds</small>
                         </div>
                     </div>
@@ -545,7 +664,7 @@
                 <h2 class="section-title">Frequently Asked Questions</h2>
                 <div class="faq-content">
                     <div class="faq-image">
-                        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="FAQ">
+                        <img src="photos/IMG-20250303-WA0000.jpg " alt="FAQ">
                     </div>
                     <div class="faq-accordion">
                         <div class="accordion-item">
@@ -585,35 +704,44 @@
                 <div class="blog-grid">
                     <article class="blog-card">
                         <div class="blog-image">
-                            <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Blog Post">
-                            <div class="blog-date">Jun 15, 2023</div>
+                            <img src=" photos/bacg.jpeg " alt="Blog Post">
+                            <div class="blog-date">Jun 15, 2025</div>
                         </div>
                         <div class="blog-content">
                             <h3>The Future of Online Education</h3>
                             <p>Exploring how technology is transforming learning experiences and what it means for students worldwide.</p>
-                            <a href="#" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                             <!-- In your blog listing page -->
+<a href="full-blog-post.html" class="see-more">
+  Read Full Article <i class="fas fa-arrow-right"></i>
+</a>
                         </div>
                     </article>
                     <article class="blog-card">
                         <div class="blog-image">
-                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Blog Post">
-                            <div class="blog-date">May 28, 2023</div>
+                            <img src=" photos/gag.jpeg " alt="Blog Post">
+                            <div class="blog-date">May 28, 2025</div>
                         </div>
                         <div class="blog-content">
-                            <h3>5 Essential Skills for 2023</h3>
+                            <h3>5 Essential Skills for 2024</h3>
                             <p>Discover the most in-demand skills that will give you a competitive edge in the job market this year.</p>
-                            <a href="#" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                                 <!-- In your blog listing page -->
+<a href="full-blog-post.html" class="see-more">
+  Read Full Article <i class="fas fa-arrow-right"></i>
+</a>
                         </div>
                     </article>
                     <article class="blog-card">
                         <div class="blog-image">
-                            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Blog Post">
-                            <div class="blog-date">May 10, 2023</div>
+                            <img src="photos/yo.jpeg " alt="Blog Post">
+                            <div class="blog-date">May 10, 2025</div>
                         </div>
                         <div class="blog-content">
                             <h3>Balancing Work and Study</h3>
                             <p>Practical tips for working professionals who want to upskill without burning out.</p>
-                            <a href="#" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                            <!-- In your blog listing page -->
+<a href="full-blog-post.html" class="see-more">
+  Read Full Article <i class="fas fa-arrow-right"></i>
+</a>
                         </div>
                     </article>
                 </div>
