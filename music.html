@@ -3,50 +3,360 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--link to external css -->
+    <title>Music & Singing | Learnly Academy</title>
     <link rel="stylesheet" href="style.css">
-    <title>music </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Music-specific styles */
+        .music-hero {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%);
+        }
+        .instrument-selector {
+            display: flex;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .instrument-btn {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            padding: 10px 15px;
+            border-radius: 50px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .instrument-btn.active {
+            background: white;
+            color: #ff6b6b;
+        }
+        .audio-player {
+            width: 100%;
+            margin: 20px 0;
+        }
+    </style>
 </head>
 <body>
-    <section class="container-1">
-        <h1>Music and Singing</h1>
-        <p>Music and singing involve the creation and performance of musical compositions. It includes vocal techniques, instrument mastery, and music theory.</p>
-        <h2>Key Areas of Music</h2>
-        <div class="expd">
-        <ul>
-            <li>Vocal Techniques</li>
-            <li>Instrument Mastery</li>
-            <li>Music Theory</li>
-            <li>Composition</li>
-        </ul>
+    <div class="wrapper">
+        <header class="header">
+            <!-- Your existing header -->
+        </header>
+
+        <!-- Music Hero Section -->
+        <section class="course-hero music-hero">
+            <div class="container">
+                <div class="course-hero-content">
+                    <h1>Music & Singing</h1>
+                    <p class="course-description">Master vocal techniques, music theory, and instrument proficiency to become a confident performer.</p>
+                    <div class="course-meta">
+                        <span><i class="fas fa-clock"></i> 12 Weeks</span>
+                        <span><i class="fas fa-chart-line"></i> All Levels</span>
+                        <span><i class="fas fa-certificate"></i> Certificate</span>
+                    </div>
+                    <div class="instrument-selector">
+                        <button class="instrument-btn active">Vocal</button>
+                        <button class="instrument-btn">Piano</button>
+                        <button class="instrument-btn">Guitar</button>
+                        <button class="instrument-btn">Drums</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Course Navigation -->
+        <nav class="course-nav">
+            <div class="container">
+                <ul>
+                    <li><a href="#overview">Overview</a></li>
+                    <li><a href="#modules">Modules</a></li>
+                    <li><a href="#resources">Resources</a></li>
+                    <li><a href="#practice">Practice Room</a></li>
+                    <li><a href="#progress">My Progress</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Overview Section -->
+        <section id="overview" class="course-section">
+            <div class="container">
+                <h2>Course Overview</h2>
+                <div class="overview-content">
+                    <div class="overview-text">
+                        <p>This comprehensive music course will transform you from beginner to confident performer:</p>
+                        <ul>
+                            <li>Vocal techniques and breath control</li>
+                            <li>Music theory fundamentals</li>
+                            <li>Instrument proficiency (piano/guitar)</li>
+                            <li>Ear training and sight reading</li>
+                            <li>Performance skills and stage presence</li>
+                            <li>Recording and production basics</li>
+                        </ul>
+                    </div>
+                    <div class="overview-video">
+                        <iframe src="https://www.youtube.com/embed/music-video-id" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modules Section -->
+        <section id="modules" class="course-section">
+            <div class="container">
+                <h2>Course Modules</h2>
+                <div class="modules-container">
+                    <!-- Module 1 -->
+                    <div class="module-card">
+                        <div class="module-header">
+                            <h3>Module 1: Vocal Fundamentals</h3>
+                            <span class="module-status">Completed</span>
+                        </div>
+                        <div class="module-content">
+                            <ul class="lesson-list">
+                                <li><i class="fas fa-check-circle completed"></i> Breathing Techniques</li>
+                                <li><i class="fas fa-check-circle completed"></i> Pitch Control</li>
+                                <li><i class="fas fa-play-circle current"></i> Vocal Range Development</li>
+                                <li><i class="fas fa-lock"></i> Harmony Singing</li>
+                            </ul>
+                            <button class="btn btn-primary continue-btn">Continue Learning</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Module 2 -->
+                    <div class="module-card">
+                        <div class="module-header">
+                            <h3>Module 2: Music Theory</h3>
+                            <span class="module-status">In Progress</span>
+                        </div>
+                        <div class="module-content">
+                            <ul class="lesson-list">
+                                <li><i class="fas fa-check-circle completed"></i> Reading Sheet Music</li>
+                                <li><i class="fas fa-play-circle current"></i> Scales and Keys</li>
+                                <li><i class="fas fa-lock"></i> Chord Progressions</li>
+                                <li><i class="fas fa-lock"></i> Rhythm Patterns</li>
+                            </ul>
+                            <button class="btn btn-primary continue-btn">Continue Learning</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Practice Room Section -->
+        <section id="practice" class="course-section">
+            <div class="container">
+                <h2>Practice Room</h2>
+                <div class="practice-tools">
+                    <div class="tool-card">
+                        <i class="fas fa-microphone"></i>
+                        <h3>Vocal Exercises</h3>
+                        <div class="audio-player">
+                            <audio controls>
+                                <source src="audio/vocal-warmup.mp3" type="audio/mpeg">
+                            </audio>
+                        </div>
+                        <button class="btn btn-outline">More Exercises</button>
+                    </div>
+                    <div class="tool-card">
+                        <i class="fas fa-sliders-h"></i>
+                        <h3>Pitch Trainer</h3>
+                        <div class="pitch-visualizer">
+                            <canvas id="pitchCanvas" width="300" height="100"></canvas>
+                        </div>
+                        <button class="btn btn-outline">Start Training</button>
+                    </div>
+                    <div class="tool-card">
+                        <i class="fas fa-drum"></i>
+                        <h3>Rhythm Master</h3>
+                        <div class="metronome">
+                            <div class="metro-display">120 BPM</div>
+                            <input type="range" min="40" max="200" value="120" class="metro-slider">
+                        </div>
+                        <button class="btn btn-outline">Start Metronome</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Progress Section -->
+        <section id="progress" class="course-section">
+            <div class="container">
+                <h2>My Progress</h2>
+                <div class="progress-container">
+                    <div class="progress-stats">
+                        <div class="progress-circle">
+                            <svg class="progress-ring" width="120" height="120">
+                                <circle class="progress-ring-circle" stroke="#e0e0e0" stroke-width="8" fill="transparent" r="52" cx="60" cy="60"/>
+                                <circle class="progress-ring-circle" stroke="#ff6b6b" stroke-width="8" fill="transparent" r="52" cx="60" cy="60" stroke-dasharray="326.56" stroke-dashoffset="98"/>
+                            </svg>
+                            <div class="progress-percent">65%</div>
+                        </div>
+                        <div class="progress-details">
+                            <h3>Course Completion</h3>
+                            <div class="progress-item">
+                                <span>Modules Completed:</span>
+                                <span>1/4</span>
+                            </div>
+                            <div class="progress-item">
+                                <span>Practice Hours:</span>
+                                <span>12/40</span>
+                            </div>
+                            <div class="progress-item">
+                                <span>Performance Score:</span>
+                                <span>78%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="certificate-section">
+                        <h3>Music Certificate</h3>
+                        <p>Earn your certificate by completing all modules and performance assessments.</p>
+                        <div class="certificate-preview">
+                    
+                            <button class="btn btn-secondary" id="generateCertBtn">Generate Certificate</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certificate Modal -->
+        <div id="certificateModal" class="modal">
+            <div class="modal-content certificate-modal">
+                <span class="close-modal">&times;</span>
+                <div class="certificate">
+                    <div class="certificate-header">
+                        <img src="images/logo.png" alt="Learnly Academy Logo" class="certificate-logo">
+                        <h2>Certificate of Achievement</h2>
+                        <p>This is to certify that</p>
+                        <h3 id="studentName">John Doe</h3>
+                        <p>has successfully completed the</p>
+                        <h4>Music & Singing Course</h4>
+                    </div>
+                    <div class="certificate-body">
+                        <div class="certificate-details">
+                            <div class="detail">
+                                <span>Date of Completion:</span>
+                                <span id="completionDate">June 15, 2023</span>
+                            </div>
+                            <div class="detail">
+                                <span>Final Grade:</span>
+                                <span id="finalGrade">B+ (85%)</span>
+                            </div>
+                            <div class="detail">
+                                <span>Certificate ID:</span>
+                                <span id="certificateId">LY-MU-2023-12345</span>
+                            </div>
+                            <div class="detail">
+                                <span>Specialization:</span>
+                                <span id="specialization">Vocal Performance</span>
+                            </div>
+                        </div>
+                        <div class="signatures">
+                            <div class="signature">
+                                <img src="images/signature-music.png" alt="Instructor Signature">
+                                <p>Lutaya Jamil</p>
+                                <p>Music Director</p>
+                            </div>
+                            <div class="signature">
+                                <img src="images/signature2.png" alt="Director Signature">
+                                <p>Sarah Johnson</p>
+                                <p>Academic Director</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="certificate-footer">
+                        <p>Issued by Learnly Academy on <span id="issueDate">June 16, 2023</span></p>
+                    </div>
+                </div>
+                <div class="certificate-actions">
+                    <button class="btn btn-primary" id="downloadCertBtn"><i class="fas fa-download"></i> Download PDF</button>
+                    <button class="btn btn-outline" id="shareCertBtn"><i class="fas fa-share-alt"></i> Share</button>
+                </div>
+            </div>
         </div>
 
-        <h2>Popular Instruments</h2>
-        <div class="expd">
-        <ul>
-            <li>Piano</li>
-            <li>Guitar</li>
-            <li>Violin</li>
-            <li>Drums</li>
-        </ul>
-        </div>
-        <h2>Famous Musicians</h2>
-        <div class="expd">
-        <ul>
-            <li>Beethoven</li>
-            <li>Mozart</li>
-            <li>Bach</li>
-            <li>Freddie Mercury</li>
-            <li>Adele</li>
-        </ul>
-        </div>
-        <h2>Resources for Learning</h2>
-        <ul class="resources">
-            <button class="btn-outline1" onclick="goToResources()">Resources</button>
-<button class="btn-outline1" onclick="takeCourse()">Take Course</button>
-<button class="btn-outline1" onclick="downloadCertificate()">Download certificate</button>
-        <ul>
-    </section>
-    <script src="main.js"></script>
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-about">
+                        <h3 class="footer-logo">learnly</h3>
+                        <p>The best online platform for studying in this modern generation. We're committed to making quality education accessible to everyone.</p>
+                        <div class="footer-social">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-links">
+                        <h3>Company</h3>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Press</a></li>
+                            <li><a href="#">Partners</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links">
+                        <h3>Resources</h3>
+                        <ul>
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">Tutorials</a></li>
+                            <li><a href="#">Community</a></li>
+                            <li><a href="#">Certification</a></li>
+                            <li><a href="#">Events</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links">
+                        <h3>Legal</h3>
+                        <ul>
+                            <li><a href="#">Terms</a></li>
+                            <li><a href="#">Privacy</a></li>
+                            <li><a href="#">Cookies</a></li>
+                            <li><a href="#">Copyright</a></li>
+                            <li><a href="#">Accessibility</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>  Learnly Academy. All rights reserved.</p>
+                    
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="course.js"></script>
+    <script>
+        // Music-specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            // Instrument selector
+            const instrumentBtns = document.querySelectorAll('.instrument-btn');
+            instrumentBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    instrumentBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    // In real app, would load instrument-specific content
+                });
+            });
+
+            // Audio player enhancement
+            const audioPlayers = document.querySelectorAll('audio');
+            audioPlayers.forEach(player => {
+                player.addEventListener('play', function() {
+                    // Visualizer would start here
+                });
+            });
+
+            // Metronome functionality
+            const metroSlider = document.querySelector('.metro-slider');
+            const metroDisplay = document.querySelector('.metro-display');
+            if (metroSlider) {
+                metroSlider.addEventListener('input', function() {
+                    metroDisplay.textContent = this.value + ' BPM';
+                });
+            }
+        });
+    </script>
 </body>
 </html>

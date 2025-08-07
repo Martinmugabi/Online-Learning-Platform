@@ -3,42 +3,451 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--link to external css -->
+    <title>Programming | Learnly Academy</title>
     <link rel="stylesheet" href="style.css">
-    <title>programming</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Programming-specific styles */
+        .programming-hero {
+            background: linear-gradient(135deg, #4a6bff 0%, #6b4aff 100%);
+        }
+        .language-selector {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        .language-btn {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            padding: 8px 15px;
+            border-radius: 50px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Courier New', monospace;
+        }
+        .language-btn.active {
+            background: white;
+            color: #4a6bff;
+            font-weight: bold;
+        }
+        .code-editor {
+            background: #1e1e1e;
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+        .editor-header {
+            background: #2d2d2d;
+            padding: 8px 15px;
+            display: flex;
+            justify-content: space-between;
+            color: #ccc;
+            font-family: 'Courier New', monospace;
+        }
+        .editor-content {
+            padding: 15px;
+            min-height: 200px;
+            color: #d4d4d4;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+        }
+        .run-btn {
+            background: #4a6bff;
+            color: white;
+            border: none;
+            padding: 5px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    <section class="container-1">
-        <h1>Programming Languages</h1>
-        <p>Programming languages are used to create software applications. They allow developers to write instructions that a computer can execute.</p>
-        <h2>Popular Programming Languages</h2>
-        <div class="expd">
-        <ul>
-            <li>Python</li>
-            <li>JavaScript</li>
-            <li>Java</li>
-            <li>C++</li>
-            <li>C#</li>
-        </ul>
+    <div class="wrapper">
+        <header class="header">
+            <!-- Your existing header -->
+        </header>
+
+        <!-- Programming Hero Section -->
+        <section class="course-hero programming-hero">
+            <div class="container">
+                <div class="course-hero-content">
+                    <h1>Programming</h1>
+                    <p class="course-description">Master C#, C++, Python and other programming languages to build powerful applications</p>
+                    <div class="course-meta">
+                        <span><i class="fas fa-clock"></i> 10 Weeks</span>
+                        <span><i class="fas fa-chart-line"></i> Beginner to Advanced</span>
+                        <span><i class="fas fa-certificate"></i> Certificate</span>
+                    </div>
+                    <div class="language-selector">
+                        <button class="language-btn active">Python</button>
+                        <button class="language-btn">JavaScript</button>
+                        <button class="language-btn">C++</button>
+                        <button class="language-btn">C#</button>
+                        <button class="language-btn">Java</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Course Navigation -->
+        <nav class="course-nav">
+            <div class="container">
+                <ul>
+                    <li><a href="#overview">Overview</a></li>
+                    <li><a href="#modules">Modules</a></li>
+                    <li><a href="#playground">Code Playground</a></li>
+                    <li><a href="#challenges">Coding Challenges</a></li>
+                    <li><a href="#progress">My Progress</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Overview Section -->
+        <section id="overview" class="course-section">
+            <div class="container">
+                <h2>Course Overview</h2>
+                <div class="overview-content">
+                    <div class="overview-text">
+                        <p>This comprehensive programming course covers everything from basic syntax to advanced algorithms:</p>
+                        <ul>
+                            <li>Programming fundamentals and logic</li>
+                            <li>Object-oriented programming concepts</li>
+                            <li>Data structures and algorithms</li>
+                            <li>Debugging and problem-solving</li>
+                            <li>Version control with Git</li>
+                            <li>Building real-world applications</li>
+                        </ul>
+                    </div>
+                    <div class="overview-video">
+                        <iframe src="https://www.youtube.com/embed/programming-video-id" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modules Section -->
+        <section id="modules" class="course-section">
+            <div class="container">
+                <h2>Course Modules</h2>
+                <div class="modules-container">
+                    <!-- Module 1 -->
+                    <div class="module-card">
+                        <div class="module-header">
+                            <h3>Module 1: Programming Fundamentals</h3>
+                            <span class="module-status">Completed</span>
+                        </div>
+                        <div class="module-content">
+                            <ul class="lesson-list">
+                                <li><i class="fas fa-check-circle completed"></i> Variables and Data Types</li>
+                                <li><i class="fas fa-check-circle completed"></i> Control Structures</li>
+                                <li><i class="fas fa-play-circle current"></i> Functions and Modules</li>
+                                <li><i class="fas fa-lock"></i> Error Handling</li>
+                            </ul>
+                            <button class="btn btn-primary continue-btn">Continue Learning</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Module 2 -->
+                    <div class="module-card">
+                        <div class="module-header">
+                            <h3>Module 2: Object-Oriented Programming</h3>
+                            <span class="module-status">In Progress</span>
+                        </div>
+                        <div class="module-content">
+                            <ul class="lesson-list">
+                                <li><i class="fas fa-check-circle completed"></i> Classes and Objects</li>
+                                <li><i class="fas fa-play-circle current"></i> Inheritance</li>
+                                <li><i class="fas fa-lock"></i> Polymorphism</li>
+                                <li><i class="fas fa-lock"></i> Design Patterns</li>
+                            </ul>
+                            <button class="btn btn-primary continue-btn">Continue Learning</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Code Playground Section -->
+        <section id="playground" class="course-section">
+            <div class="container">
+                <h2>Interactive Code Playground</h2>
+                <div class="code-editor">
+                    <div class="editor-header">
+                        <span>main.py</span>
+                        <button class="run-btn">Run Code</button>
+                    </div>
+                    <div class="editor-content" contenteditable="true"># Welcome to the Learnly Code Playground
+# Try writing some Python code below
+
+def greet(name):
+    return f"Hello, {name}!"
+
+print(greet("Learnly Student"))</div>
+                </div>
+                <div class="output-container">
+                    <h3>Output:</h3>
+                    <div class="output-content">
+                        <pre>Hello, Learnly Student!</pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Coding Challenges Section -->
+        <section id="challenges" class="course-section">
+            <div class="container">
+                <h2>Coding Challenges</h2>
+                <div class="challenges-grid">
+                    <div class="challenge-card">
+                        <div class="challenge-difficulty easy">Easy</div>
+                        <h3>FizzBuzz</h3>
+                        <p>Write a program that prints numbers from 1 to 100, but for multiples of 3 print "Fizz" and for multiples of 5 print "Buzz".</p>
+                        <div class="challenge-stats">
+                            <span><i class="fas fa-users"></i> 85% Completion</span>
+                            <button class="btn btn-outline">Solve Challenge</button>
+                        </div>
+                    </div>
+                    <div class="challenge-card">
+                        <div class="challenge-difficulty medium">Medium</div>
+                        <h3>Palindrome Checker</h3>
+                        <p>Write a function that checks if a given string is a palindrome (reads the same backward as forward).</p>
+                        <div class="challenge-stats">
+                            <span><i class="fas fa-users"></i> 62% Completion</span>
+                            <button class="btn btn-outline">Solve Challenge</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Progress Section -->
+        <section id="progress" class="course-section">
+            <div class="container">
+                <h2>My Progress</h2>
+                <div class="progress-container">
+                    <div class="progress-stats">
+                        <div class="progress-circle">
+                            <svg class="progress-ring" width="120" height="120">
+                                <circle class="progress-ring-circle" stroke="#e0e0e0" stroke-width="8" fill="transparent" r="52" cx="60" cy="60"/>
+                                <circle class="progress-ring-circle" stroke="#4a6bff" stroke-width="8" fill="transparent" r="52" cx="60" cy="60" stroke-dasharray="326.56" stroke-dashoffset="98"/>
+                            </svg>
+                            <div class="progress-percent">75%</div>
+                        </div>
+                        <div class="progress-details">
+                            <h3>Course Completion</h3>
+                            <div class="progress-item">
+                                <span>Modules Completed:</span>
+                                <span>2/6</span>
+                            </div>
+                            <div class="progress-item">
+                                <span>Challenges Solved:</span>
+                                <span>15/30</span>
+                            </div>
+                            <div class="progress-item">
+                                <span>Code Quality Score:</span>
+                                <span>88%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="certificate-section">
+                        <h3>Programming Certificate</h3>
+                        <p>Earn your certificate by completing all modules and coding challenges.</p>
+                        <div class="certificate-preview">
+                            <button class="btn btn-secondary" id="generateCertBtn">Generate Certificate</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certificate Modal -->
+        <div id="certificateModal" class="modal">
+            <div class="modal-content certificate-modal">
+                <span class="close-modal">&times;</span>
+                <div class="certificate">
+                    <div class="certificate-header">
+                        <img src="images/logo.png" alt="Learnly Academy Logo" class="certificate-logo">
+                        <h2>Certificate of Completion</h2>
+                        <p>This is to certify that</p>
+                        <h3 id="studentName">John Doe</h3>
+                        <p>has successfully completed the</p>
+                        <h4>Programming Course</h4>
+                    </div>
+                    <div class="certificate-body">
+                        <div class="certificate-details">
+                            <div class="detail">
+                                <span>Date of Completion:</span>
+                                <span id="completionDate">June 15, 2023</span>
+                            </div>
+                            <div class="detail">
+                                <span>Primary Language:</span>
+                                <span id="primaryLanguage">Python</span>
+                            </div>
+                            <div class="detail">
+                                <span>Final Grade:</span>
+                                <span id="finalGrade">A (92%)</span>
+                            </div>
+                            <div class="detail">
+                                <span>Certificate ID:</span>
+                                <span id="certificateId">LY-PR-2023-12345</span>
+                            </div>
+                        </div>
+                        <div class="signatures">
+                            <div class="signature">
+                                <img src="images/signature-programming.png" alt="Instructor Signature">
+                                <p>Martin Mugabi</p>
+                                <p>Senior Developer</p>
+                            </div>
+                            <div class="signature">
+                                <img src="images/signature2.png" alt="Director Signature">
+                                <p>Sarah Johnson</p>
+                                <p>Academic Director</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="certificate-footer">
+                        <p>Issued by Learnly Academy on <span id="issueDate">June 16, 2023</span></p>
+                    </div>
+                </div>
+                <div class="certificate-actions">
+                    <button class="btn btn-primary" id="downloadCertBtn"><i class="fas fa-download"></i> Download PDF</button>
+                    <button class="btn btn-outline" id="shareCertBtn"><i class="fas fa-share-alt"></i> Share</button>
+                </div>
+            </div>
         </div>
-        <h2>Key Concepts in Programming</h2>
-        <div class="expd">
-        <ul>
-            <li>Variables and Data Types</li>
-            <li>Control Structures (if, loops)</li>
-            <li>Functions and Methods</li>
-            <li>Object-Oriented Programming</li>
-            <li>Data Structures (arrays, lists, dictionaries)</li>
-        </ul>
-        </div>
-        <h2>Resources for Learning</h2>
-    
-        <ul class="resources">
-           <button class="btn-outline1" onclick="goToResources()">Resources</button>
-<button class="btn-outline1" onclick="takeCourse()">Take Course</button>
-<button class="btn-outline1" onclick="downloadCertificate()">Download certificate</button>
-        <ul>
-    </section>
-    <script src="main.js"></script>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-about">
+                        <h3 class="footer-logo">learnly</h3>
+                        <p>The best online platform for studying in this modern generation. We're committed to making quality education accessible to everyone.</p>
+                        <div class="footer-social">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-links">
+                        <h3>Company</h3>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Press</a></li>
+                            <li><a href="#">Partners</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links">
+                        <h3>Resources</h3>
+                        <ul>
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">Tutorials</a></li>
+                            <li><a href="#">Community</a></li>
+                            <li><a href="#">Certification</a></li>
+                            <li><a href="#">Events</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links">
+                        <h3>Legal</h3>
+                        <ul>
+                            <li><a href="#">Terms</a></li>
+                            <li><a href="#">Privacy</a></li>
+                            <li><a href="#">Cookies</a></li>
+                            <li><a href="#">Copyright</a></li>
+                            <li><a href="#">Accessibility</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>  Learnly Academy. All rights reserved.</p>
+                    
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="course.js"></script>
+    <script>
+        // Programming-specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            // Language selector
+            const languageBtns = document.querySelectorAll('.language-btn');
+            languageBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    languageBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Update code editor with language-specific starter code
+                    const editor = document.querySelector('.editor-content');
+                    const language = this.textContent;
+                    
+                    switch(language) {
+                        case 'Python':
+                            editor.innerHTML = `# Welcome to Python Playground
+def greet(name):
+    return f"Hello, {name}!"
+
+print(greet("Learnly Student"))`;
+                            break;
+                        case 'JavaScript':
+                            editor.innerHTML = `// Welcome to JavaScript Playground
+function greet(name) {
+    return \`Hello, \${name}!\`;
+}
+
+console.log(greet("Learnly Student"));`;
+                            break;
+                        case 'C++':
+                            editor.innerHTML = `// Welcome to C++ Playground
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+string greet(string name) {
+    return "Hello, " + name + "!";
+}
+
+int main() {
+    cout << greet("Learnly Student") << endl;
+    return 0;
+}`;
+                            break;
+                    }
+                });
+            });
+
+            // Run code button (simulated)
+            const runBtn = document.querySelector('.run-btn');
+            if (runBtn) {
+                runBtn.addEventListener('click', function() {
+                    const output = document.querySelector('.output-content pre');
+                    const editor = document.querySelector('.editor-content');
+                    const language = document.querySelector('.language-btn.active').textContent;
+                    
+                    // In a real app, this would send code to a compiler API
+                    output.textContent = "Running " + language + " code...\n\n";
+                    
+                    // Simulate different outputs based on language
+                    switch(language) {
+                        case 'Python':
+                            output.textContent += "Hello, Learnly Student!";
+                            break;
+                        case 'JavaScript':
+                            output.textContent += "Hello, Learnly Student!";
+                            break;
+                        case 'C++':
+                            output.textContent += "Hello, Learnly Student!";
+                            break;
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>
